@@ -1,15 +1,15 @@
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Target Name="UvFindNetCore31GameProject">
+  <Target Name="UvFindNETCoreGameProject">
     <PropertyGroup>
-      <UltravioletNetCoreProjectPath>$([System.IO.Path]::GetFullPath($([System.IO.Path]::Combine('..', 'Sample12_UPF.NETCore3'))))</UltravioletNetCoreProjectPath>
-      <UltravioletBindingExpressionsPath>$([System.IO.Path]::GetFullPath($([System.IO.Path]::Combine('..', 'Sample12_UPF.NETCore3', 'bin', 'Debug', 'netcoreapp3.1', 'Ultraviolet.Presentation.CompiledExpressions.dll'))))</UltravioletBindingExpressionsPath>
+      <UltravioletNetCoreProjectPath>$([System.IO.Path]::GetFullPath($([System.IO.Path]::Combine('..', 'Sample12_UPF.NETCore'))))</UltravioletNetCoreProjectPath>
+      <UltravioletBindingExpressionsPath>$([System.IO.Path]::GetFullPath($([System.IO.Path]::Combine('..', 'Sample12_UPF.NETCore', 'bin', '$(Configuration)', 'net6.0', 'Ultraviolet.Presentation.CompiledExpressions.dll'))))</UltravioletBindingExpressionsPath>
       <UltravioletBindingExpressionDestinationPath>$([System.IO.Path]::GetFullPath($([System.IO.Path]::Combine('..', 'Sample12_UPF.Android'))))</UltravioletBindingExpressionDestinationPath>
     </PropertyGroup>
-    <Error Text="Could not locate the .NET Core 3.1 project directory." Condition="!Exists('$(UltravioletNetCoreProjectPath)')"/>
+    <Error Text="Could not locate the .NET Core project directory." Condition="!Exists('$(UltravioletNetCoreProjectPath)')"/>
   </Target>
-  <Target Name="UvCompileBindingExpressions" DependsOnTargets="UvFindNetCore31GameProject">
-    <Message Text="Invoking the .NET Core 3.1 executable to compile binding expressions."/>
-    <Exec Command="dotnet run -- -compile:expressions" WorkingDirectory="$(UltravioletNetCoreProjectPath)"/>
+  <Target Name="UvCompileBindingExpressions" DependsOnTargets="UvFindNETCoreGameProject">
+    <Message Text="Invoking the .NET Core executable to compile binding expressions."/>
+    <Exec Command="dotnet run --configuration $(Configuration) -compile:expressions" WorkingDirectory="$(UltravioletNetCoreProjectPath)"/>
   </Target>
   <Target Name="UvCompileBindingExpressionsCopyResults" BeforeTargets="BeforeBuild" DependsOnTargets="UvCompileBindingExpressions">
     <Error Text="Could not locate the UPF binding expressions library." Condition="!Exists('$(UltravioletBindingExpressionsPath)')"/>

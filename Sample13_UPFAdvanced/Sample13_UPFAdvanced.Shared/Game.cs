@@ -152,7 +152,7 @@ namespace Sample13_UPFAdvanced
 #if DEBUG
             return true;
 #else
-            return (flags & GameFlags.CompileExpressions) == GameFlags.CompiledExpressions || System.Diagnostics.Debugger.IsAttached;
+            return (flags & GameFlags.CompileExpressions) == GameFlags.CompileExpressions || System.Diagnostics.Debugger.IsAttached;
 #endif
         }
 

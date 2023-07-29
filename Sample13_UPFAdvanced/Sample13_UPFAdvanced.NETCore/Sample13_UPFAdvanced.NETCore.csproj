@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0</TargetFramework>
+    <ApplicationIcon />
+    <StartupObject />
+    <RootNamespace>uvgame</RootNamespace>
+    <AssemblyName>Sample13_UPFAdvanced</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove=".template.config\**" />
+    <EmbeddedResource Remove=".template.config\**" />
+    <None Remove=".template.config\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Ultraviolet" />
+    <PackageReference Include="Ultraviolet.BASS" />
+    <PackageReference Include="Ultraviolet.FreeType2" />
+    <PackageReference Include="Ultraviolet.OpenGL" />
+    <PackageReference Include="Ultraviolet.Presentation" />
+    <PackageReference Include="Ultraviolet.Presentation.Compiler" />
+    <PackageReference Include="Ultraviolet.SDL2" />
+    <PackageReference Include="Ultraviolet.Shims.NETCore" />
+  </ItemGroup>
+
+  <Import Project="..\Sample13_UPFAdvanced.Shared\Sample13_UPFAdvanced.Shared.projitems" Label="Shared" />
+
+</Project>
