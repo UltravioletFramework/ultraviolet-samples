@@ -1,7 +1,7 @@
 ﻿using Android.App;
 using Android.Content.PM;
 
-namespace sample16_customtextlayoutcommands
+namespace Sample16_CustomTextLayoutCommands
 {
     [Activity(Label = "Sample 16 - Custom Text Layout Commands", MainLauncher = true, ConfigurationChanges =
         ConfigChanges.Orientation |
