@@ -15,7 +15,7 @@ precision mediump int;
 #else
     #define DECLARE_INPUT_COLOR in vec4 vColor
     #define DECLARE_INPUT_TEXCOORD in vec2 vTextureCoordinate
-    #define DECLARE_OUTPUT_COLOR out vec4 fColor
+    #define DECLARE_OUTPUT_COLOR out vec4 fColor;
 #endif
 
 uniform sampler2D Texture;
@@ -24,7 +24,7 @@ uniform float Time;
 DECLARE_INPUT_COLOR;
 DECLARE_INPUT_TEXCOORD;
 
-DECLARE_OUTPUT_COLOR;
+DECLARE_OUTPUT_COLOR
 
 #include "NoiseCommon.fragh"
 
