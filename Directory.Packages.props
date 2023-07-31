@@ -11,7 +11,7 @@
   
   <!-- Package versions for package references across all projects -->
   <PropertyGroup>
-    <UltravioletVersion>2023.7.0.5</UltravioletVersion>
+    <UltravioletVersion>2023.7.0.10</UltravioletVersion>
   </PropertyGroup>
   
   <ItemGroup>
@@ -33,7 +33,7 @@
       <PackageVersion Include="Ultraviolet.Presentation" Version="$(UltravioletVersion)" />
       <PackageVersion Include="Ultraviolet.Presentation.Compiler" Version="$(UltravioletVersion)" />
       <PackageVersion Include="Ultraviolet.SDL2" Version="$(UltravioletVersion)" />
-      <PackageVersion Include="Ultraviolet.Native" Version="$(UltravioletVersion)" />
+      <PackageVersion Include="Ultraviolet.SDL2.Native" Version="$(UltravioletVersion)" />
       
       <!-- NETCore -->
       <PackageVersion Include="Ultraviolet.Shims.NETCore" Version="$(UltravioletVersion)" />
