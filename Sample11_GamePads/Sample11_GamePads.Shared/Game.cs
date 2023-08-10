@@ -22,13 +22,13 @@ namespace Sample11_GamePads
             : base("Ultraviolet", "Sample 11 - Game Pads")
         { }
 
-        protected override UltravioletContext OnCreatingUltravioletContext()
+        protected override UltravioletContext OnCreatingUltravioletContext(Action<UltravioletContext, UltravioletFactory> factoryInitializer)
         {
             var configuration = new SDL2UltravioletConfiguration();
             configuration.Plugins.Add(new OpenGLGraphicsPlugin());
             configuration.Plugins.Add(new BASSAudioPlugin());
 
-            return new SDL2UltravioletContext(this, configuration);
+            return new SDL2UltravioletContext(this, configuration, factoryInitializer);
         }
 
         protected override void OnInitialized()

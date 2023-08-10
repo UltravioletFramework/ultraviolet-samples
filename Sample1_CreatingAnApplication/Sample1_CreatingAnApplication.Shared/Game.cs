@@ -1,3 +1,4 @@
+using System;
 using Ultraviolet;
 using Ultraviolet.BASS;
 using Ultraviolet.OpenGL;
@@ -11,13 +12,13 @@ namespace Sample1_CreatingAnApplication
             : base("Ultraviolet", "Sample 1 - Creating an Application")
         { }
 
-        protected override UltravioletContext OnCreatingUltravioletContext()
+        protected override UltravioletContext OnCreatingUltravioletContext(Action<UltravioletContext, UltravioletFactory> factoryInitializer)
         {
             var configuration = new SDL2UltravioletConfiguration();
             configuration.Plugins.Add(new OpenGLGraphicsPlugin());
             configuration.Plugins.Add(new BASSAudioPlugin());
 
-            return new SDL2UltravioletContext(this, configuration);
+            return new SDL2UltravioletContext(this, configuration, factoryInitializer);
         }
     }
 }

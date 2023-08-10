@@ -26,7 +26,7 @@ namespace Sample13_UPFAdvanced
             this.flags = flags;
         }
 
-        protected override UltravioletContext OnCreatingUltravioletContext()
+        protected override UltravioletContext OnCreatingUltravioletContext(Action<UltravioletContext, UltravioletFactory> factoryInitializer)
         {
             var configuration = new SDL2UltravioletConfiguration();
             configuration.EnableServiceMode = ShouldRunInServiceMode();
@@ -36,7 +36,7 @@ namespace Sample13_UPFAdvanced
             configuration.Plugins.Add(new FreeTypeFontPlugin());
             configuration.Plugins.Add(new PresentationFoundationPlugin());
 
-            return new SDL2UltravioletContext(this, configuration);
+            return new SDL2UltravioletContext(this, configuration, factoryInitializer);
         }
 
         protected override void OnInitialized()
