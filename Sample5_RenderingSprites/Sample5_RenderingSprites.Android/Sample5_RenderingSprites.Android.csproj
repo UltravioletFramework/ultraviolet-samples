@@ -11,18 +11,20 @@
     <SupportedOSPlatformVersion>24</SupportedOSPlatformVersion>
     <OutputType>Exe</OutputType>
     <ApplicationId>com.companyname.Sample5_RenderingSprites.android</ApplicationId>
-    <RootNamespace>Sample5_RenderingSprites</RootNamespace>
-    <AssemblyName>Sample5_RenderingSprites</AssemblyName>
+    <RootNamespace>Sample5_RenderingSprites.Android</RootNamespace>
+    <AssemblyName>Sample5_RenderingSprites.Android</AssemblyName>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Ultraviolet"/>
-    <PackageReference Include="Ultraviolet.BASS"/>
-    <PackageReference Include="Ultraviolet.FreeType2"/>
-    <PackageReference Include="Ultraviolet.OpenGL"/>
-    <PackageReference Include="Ultraviolet.SDL2"/>
-    <PackageReference Include="Ultraviolet.Shims.Android"/>
+    <PackageReference Include="Ultraviolet" />
+    <PackageReference Include="Ultraviolet.BASS" />
+    <PackageReference Include="Ultraviolet.FreeType2" />
+    <PackageReference Include="Ultraviolet.OpenGL" />
+    <PackageReference Include="Ultraviolet.SDL2" />
+    <PackageReference Include="Ultraviolet.Shims.Android" />
   </ItemGroup>
-  <Import Project="..\Sample5_RenderingSprites.Shared\Sample5_RenderingSprites.Shared.projitems" Label="Shared" />
+  <ItemGroup>
+    <ProjectReference Include="..\Sample5_RenderingSprites.Shared\Sample5_RenderingSprites.Shared.csproj" />
+  </ItemGroup>
   <Import Project="Ultraviolet.Android.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
     Other similar extension points exist, see Microsoft.Common.targets.

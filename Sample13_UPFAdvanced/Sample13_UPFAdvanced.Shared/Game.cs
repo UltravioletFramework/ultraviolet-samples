@@ -1,8 +1,9 @@
 using System;
 using System.IO;
 using Sample13_UPFAdvanced.Input;
-using Sample13_UPFAdvanced.UI;
-using Sample13_UPFAdvanced.UI.Screens;
+using Sample13_UPFAdvanced.Shared;
+using Sample13_UPFAdvanced.Shared.UI;
+using Sample13_UPFAdvanced.Shared.UI.Screens;
 using Ultraviolet;
 using Ultraviolet.BASS;
 using Ultraviolet.Content;
@@ -14,34 +15,30 @@ using Ultraviolet.SDL2;
 
 namespace Sample13_UPFAdvanced
 {
-    public partial class Game : UltravioletApplication
+    public class Game : UltravioletApplicationAdapter
     {
-        public Game()
-            : this(GameFlags.None)
+        public Game(IUltravioletApplicationAdapterHost host)
+            : this(host, GameFlags.None)
         { }
 
-        public Game(GameFlags flags)
-            : base("Ultraviolet", "Sample 13 - UPF (Advanced)")
+        public Game(IUltravioletApplicationAdapterHost host, GameFlags flags)
+            : base(host)
         {
             this.flags = flags;
         }
 
-        protected override UltravioletContext OnCreatingUltravioletContext(Action<UltravioletContext, UltravioletFactory> factoryInitializer)
+        protected override void OnConfiguring(UltravioletConfiguration configuration)
         {
-            var configuration = new SDL2UltravioletConfiguration();
             configuration.EnableServiceMode = ShouldRunInServiceMode();
             configuration.WatchViewFilesForChanges = ShouldDynamicallyReloadContent();
             configuration.Plugins.Add(new OpenGLGraphicsPlugin());
             configuration.Plugins.Add(new BASSAudioPlugin());
             configuration.Plugins.Add(new FreeTypeFontPlugin());
             configuration.Plugins.Add(new PresentationFoundationPlugin());
-
-            return new SDL2UltravioletContext(this, configuration, factoryInitializer);
         }
 
         protected override void OnInitialized()
         {
-            UsePlatformSpecificFileSource();
             LoadInputBindings();
 
             base.OnInitialized();
@@ -81,7 +78,7 @@ namespace Sample13_UPFAdvanced
         {
             if (Ultraviolet.GetInput().GetActions().ExitApplication.IsPressed())
             {
-                Exit();
+                Host.Exit();
             }
 
             base.OnUpdating(time);
@@ -105,7 +102,7 @@ namespace Sample13_UPFAdvanced
 
         private String GetInputBindingsPath()
         {
-            return Path.Combine(GetRoamingApplicationSettingsDirectory(), "InputBindings.xml");
+            return Path.Combine(Host.GetRoamingApplicationSettingsDirectory(), "InputBindings.xml");
         }
 
         private void LoadInputBindings()

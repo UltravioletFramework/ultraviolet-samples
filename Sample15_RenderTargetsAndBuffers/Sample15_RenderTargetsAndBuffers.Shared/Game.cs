@@ -12,26 +12,27 @@ using Ultraviolet.Graphics.Graphics2D;
 using Ultraviolet.OpenGL;
 using Ultraviolet.SDL2;
 
-namespace Sample15_RenderTargetsAndBuffers
+namespace Sample15_RenderTargetsAndBuffers.Shared
 {
-    public partial class Game : UltravioletApplication
+    public interface IImageSaver
     {
-        public Game()
-            : base("Ultraviolet", "Sample 15 - Render Targets and Buffers")
+        void SaveImage(SurfaceSaver surfaceSaver, RenderTarget2D target, out Double messageOpacity, out String message);
+    }
+
+    public partial class Game : UltravioletApplicationAdapter
+    {
+        public Game(IUltravioletApplicationAdapterHost host)
+            : base(host)
         { }
 
-        protected override UltravioletContext OnCreatingUltravioletContext(Action<UltravioletContext, UltravioletFactory> factoryInitializer)
+        protected override void OnConfiguring(UltravioletConfiguration configuration)
         {
-            var configuration = new SDL2UltravioletConfiguration();
             configuration.Plugins.Add(new OpenGLGraphicsPlugin());
             configuration.Plugins.Add(new BASSAudioPlugin());
-            
-            return new SDL2UltravioletContext(this, configuration, factoryInitializer);
         }
 
         protected override void OnInitialized()
         {
-            UsePlatformSpecificFileSource();
             LoadInputBindings();
 
             base.OnInitialized();
@@ -78,7 +79,7 @@ namespace Sample15_RenderTargetsAndBuffers
                 // The Android and iOS platforms have restrictions on where you can save files, so we'll just
                 // save to the photo gallery on those devices. We'll use a partial method to implement
                 // this platform-specific behavior.
-                SaveImage(saver, rtarget);
+                ((IImageSaver)Host).SaveImage(saver, rtarget, out confirmMsgOpacity, out confirmMsgText);
 
                 // Alternatively, we could populate an array with the target's data using the GetData() method...
                 //     var data = new Color[rtarget.Width * rtarget.Height];
@@ -88,7 +89,7 @@ namespace Sample15_RenderTargetsAndBuffers
             // ACTION: Exit Application
             if (Ultraviolet.GetInput().GetActions().ExitApplication.IsPressed())
             {
-                Exit();
+                Host.Exit();
             }
 
             // Fade out save confirmation message
@@ -181,7 +182,7 @@ namespace Sample15_RenderTargetsAndBuffers
 
         private String GetInputBindingsPath()
         {
-            return Path.Combine(GetRoamingApplicationSettingsDirectory(), "InputBindings.xml");
+            return Path.Combine(Host.GetRoamingApplicationSettingsDirectory(), "InputBindings.xml");
         }
 
         private void LoadInputBindings()
@@ -207,7 +208,7 @@ namespace Sample15_RenderTargetsAndBuffers
             Ultraviolet.GetContent().Manifests["Global"]["SoundEffects"].PopulateAssetLibrary(typeof(GlobalSoundEffectID));
         }
 
-        partial void SaveImage(SurfaceSaver surfaceSaver, RenderTarget2D target);
+        //partial void SaveImage(SurfaceSaver surfaceSaver, RenderTarget2D target);
 
         // Application resources
         private ContentManager content;

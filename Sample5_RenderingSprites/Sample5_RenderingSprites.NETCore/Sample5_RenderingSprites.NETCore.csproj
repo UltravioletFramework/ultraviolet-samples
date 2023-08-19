@@ -5,8 +5,8 @@
     <TargetFramework>net6.0</TargetFramework>
     <ApplicationIcon />
     <StartupObject />
-    <RootNamespace>Sample5_RenderingSprites</RootNamespace>
-    <AssemblyName>Sample5_RenderingSprites</AssemblyName>
+    <RootNamespace>Sample5_RenderingSprites.NETCore</RootNamespace>
+    <AssemblyName>Sample5_RenderingSprites.NETCore</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>
@@ -24,6 +24,8 @@
     <PackageReference Include="Ultraviolet.Shims.NETCore" />
   </ItemGroup>
 
-  <Import Project="..\Sample5_RenderingSprites.Shared\Sample5_RenderingSprites.Shared.projitems" Label="Shared" />
+  <ItemGroup>
+    <ProjectReference Include="..\Sample5_RenderingSprites.Shared\Sample5_RenderingSprites.Shared.csproj" />
+  </ItemGroup>
 
 </Project>

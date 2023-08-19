@@ -5,7 +5,7 @@ using Ultraviolet.Presentation;
 using Ultraviolet.Presentation.Controls;
 using Ultraviolet.Presentation.Input;
 
-namespace Sample13_UPFAdvanced.UI.Screens
+namespace Sample13_UPFAdvanced.Shared.UI.Screens
 {
     /// <summary>
     /// Represents the view model for <see cref="GameMenuScreen"/>.

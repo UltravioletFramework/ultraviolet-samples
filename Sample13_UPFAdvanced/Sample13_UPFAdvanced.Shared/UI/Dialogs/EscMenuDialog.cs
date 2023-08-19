@@ -1,10 +1,10 @@
 ﻿using System;
-using Sample13_UPFAdvanced.UI.Screens;
+using Sample13_UPFAdvanced.Shared.UI.Screens;
 using Ultraviolet.Core;
 using Ultraviolet.Presentation;
 using Ultraviolet.UI;
 
-namespace Sample13_UPFAdvanced.UI.Dialogs
+namespace Sample13_UPFAdvanced.Shared.UI.Dialogs
 {
     /// <summary>
     /// Represents the dialog box that is shown when the user presses the escape key.

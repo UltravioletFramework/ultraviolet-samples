@@ -6,7 +6,7 @@ using Ultraviolet.Input;
 using Ultraviolet.Presentation;
 using Ultraviolet.Presentation.Input;
 
-namespace Sample13_UPFAdvanced.UI.Controls
+namespace Sample13_UPFAdvanced.Shared.UI.Controls
 {
     /// <summary>
     /// Represents a UI element that displays a 3D triangle.

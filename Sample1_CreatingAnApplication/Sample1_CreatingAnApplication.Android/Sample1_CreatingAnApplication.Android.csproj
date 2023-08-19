@@ -11,18 +11,20 @@
     <SupportedOSPlatformVersion>24</SupportedOSPlatformVersion>
     <OutputType>Exe</OutputType>
     <ApplicationId>com.companyname.Sample1_CreatingAnApplication.android</ApplicationId>
-    <RootNamespace>Sample1_CreatingAnApplication</RootNamespace>
-    <AssemblyName>Sample1_CreatingAnApplication</AssemblyName>
+    <RootNamespace>Sample1_CreatingAnApplication.Android</RootNamespace>
+    <AssemblyName>Sample1_CreatingAnApplication.Android</AssemblyName>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Ultraviolet"/>
-    <PackageReference Include="Ultraviolet.BASS"/>
-    <PackageReference Include="Ultraviolet.FreeType2"/>
-    <PackageReference Include="Ultraviolet.OpenGL"/>
-    <PackageReference Include="Ultraviolet.SDL2"/>
-    <PackageReference Include="Ultraviolet.Shims.Android"/>
+    <PackageReference Include="Ultraviolet" />
+    <PackageReference Include="Ultraviolet.BASS" />
+    <PackageReference Include="Ultraviolet.FreeType2" />
+    <PackageReference Include="Ultraviolet.OpenGL" />
+    <PackageReference Include="Ultraviolet.SDL2" />
+    <PackageReference Include="Ultraviolet.Shims.Android" />
   </ItemGroup>
-  <Import Project="..\Sample1_CreatingAnApplication.Shared\Sample1_CreatingAnApplication.Shared.projitems" Label="Shared" />
+  <ItemGroup>
+    <ProjectReference Include="..\Sample1_CreatingAnApplication.Shared\Sample1_CreatingAnApplication.Shared.csproj" />
+  </ItemGroup>
   <Import Project="Ultraviolet.Android.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
     Other similar extension points exist, see Microsoft.Common.targets.

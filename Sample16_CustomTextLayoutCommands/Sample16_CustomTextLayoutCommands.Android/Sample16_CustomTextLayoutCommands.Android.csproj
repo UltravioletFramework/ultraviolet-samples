@@ -11,18 +11,20 @@
     <SupportedOSPlatformVersion>24</SupportedOSPlatformVersion>
     <OutputType>Exe</OutputType>
     <ApplicationId>com.companyname.Sample16_CustomTextLayoutCommands.android</ApplicationId>
-    <RootNamespace>Sample16_CustomTextLayoutCommands</RootNamespace>
-    <AssemblyName>Sample16_CustomTextLayoutCommands</AssemblyName>
+    <RootNamespace>Sample16_CustomTextLayoutCommands.Android</RootNamespace>
+    <AssemblyName>Sample16_CustomTextLayoutCommands.Android</AssemblyName>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Ultraviolet"/>
-    <PackageReference Include="Ultraviolet.BASS"/>
-    <PackageReference Include="Ultraviolet.FreeType2"/>
-    <PackageReference Include="Ultraviolet.OpenGL"/>
-    <PackageReference Include="Ultraviolet.SDL2"/>
-    <PackageReference Include="Ultraviolet.Shims.Android"/>
+    <PackageReference Include="Ultraviolet" />
+    <PackageReference Include="Ultraviolet.BASS" />
+    <PackageReference Include="Ultraviolet.FreeType2" />
+    <PackageReference Include="Ultraviolet.OpenGL" />
+    <PackageReference Include="Ultraviolet.SDL2" />
+    <PackageReference Include="Ultraviolet.Shims.Android" />
   </ItemGroup>
-  <Import Project="..\Sample16_CustomTextLayoutCommands.Shared\Sample16_CustomTextLayoutCommands.Shared.projitems" Label="Shared" />
+  <ItemGroup>
+    <ProjectReference Include="..\Sample16_CustomTextLayoutCommands.Shared\Sample16_CustomTextLayoutCommands.Shared.csproj" />
+  </ItemGroup>
   <Import Project="Ultraviolet.Android.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
     Other similar extension points exist, see Microsoft.Common.targets.

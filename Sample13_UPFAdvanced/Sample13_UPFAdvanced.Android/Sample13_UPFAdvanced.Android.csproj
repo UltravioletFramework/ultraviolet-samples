@@ -11,22 +11,24 @@
     <SupportedOSPlatformVersion>24</SupportedOSPlatformVersion>
     <OutputType>Exe</OutputType>
     <ApplicationId>com.companyname.Sample13_UPFAdvanced.android</ApplicationId>
-    <AssemblyName>Sample13_UPFAdvanced</AssemblyName>
-    <RootNamespace>Sample13_UPFAdvanced</RootNamespace>
+    <AssemblyName>Sample13_UPFAdvanced.Android</AssemblyName>
+    <RootNamespace>Sample13_UPFAdvanced.Android</RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Ultraviolet"/>
-    <PackageReference Include="Ultraviolet.BASS"/>
-    <PackageReference Include="Ultraviolet.FreeType2"/>
-    <PackageReference Include="Ultraviolet.OpenGL"/>
-    <PackageReference Include="Ultraviolet.Presentation"/>
-    <PackageReference Include="Ultraviolet.SDL2"/>
-    <PackageReference Include="Ultraviolet.Shims.Android"/>
+    <PackageReference Include="Ultraviolet" />
+    <PackageReference Include="Ultraviolet.BASS" />
+    <PackageReference Include="Ultraviolet.FreeType2" />
+    <PackageReference Include="Ultraviolet.OpenGL" />
+    <PackageReference Include="Ultraviolet.Presentation" />
+    <PackageReference Include="Ultraviolet.SDL2" />
+    <PackageReference Include="Ultraviolet.Shims.Android" />
   </ItemGroup>
   <ItemGroup>
     <AndroidAsset Include="Ultraviolet.Presentation.CompiledExpressions.dll" />
   </ItemGroup>
-  <Import Project="..\Sample13_UPFAdvanced.Shared\Sample13_UPFAdvanced.Shared.projitems" Label="Shared" />
+  <ItemGroup>
+    <ProjectReference Include="..\Sample13_UPFAdvanced.Shared\Sample13_UPFAdvanced.Shared.csproj" />
+  </ItemGroup>
   <Import Project="Ultraviolet.Android.targets" />
   <Import Project="Ultraviolet.Android.Presentation.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

@@ -11,18 +11,20 @@
     <SupportedOSPlatformVersion>24</SupportedOSPlatformVersion>
     <OutputType>Exe</OutputType>
     <ApplicationId>com.companyname.Sample15_RenderTargetsAndBuffers.android</ApplicationId>
-    <RootNamespace>Sample15_RenderTargetsAndBuffers</RootNamespace>
-    <AssemblyName>Sample15_RenderTargetsAndBuffers</AssemblyName>
+    <RootNamespace>Sample15_RenderTargetsAndBuffers.Android</RootNamespace>
+    <AssemblyName>Sample15_RenderTargetsAndBuffers.Android</AssemblyName>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Ultraviolet"/>
-    <PackageReference Include="Ultraviolet.BASS"/>
-    <PackageReference Include="Ultraviolet.FreeType2"/>
-    <PackageReference Include="Ultraviolet.OpenGL"/>
-    <PackageReference Include="Ultraviolet.SDL2"/>
-    <PackageReference Include="Ultraviolet.Shims.Android"/>
+    <PackageReference Include="Ultraviolet" />
+    <PackageReference Include="Ultraviolet.BASS" />
+    <PackageReference Include="Ultraviolet.FreeType2" />
+    <PackageReference Include="Ultraviolet.OpenGL" />
+    <PackageReference Include="Ultraviolet.SDL2" />
+    <PackageReference Include="Ultraviolet.Shims.Android" />
   </ItemGroup>
-  <Import Project="..\Sample15_RenderTargetsAndBuffers.Shared\Sample15_RenderTargetsAndBuffers.Shared.projitems" Label="Shared" />
+  <ItemGroup>
+    <ProjectReference Include="..\Sample15_RenderTargetsAndBuffers.Shared\Sample15_RenderTargetsAndBuffers.Shared.csproj" />
+  </ItemGroup>
   <Import Project="Ultraviolet.Android.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
     Other similar extension points exist, see Microsoft.Common.targets.

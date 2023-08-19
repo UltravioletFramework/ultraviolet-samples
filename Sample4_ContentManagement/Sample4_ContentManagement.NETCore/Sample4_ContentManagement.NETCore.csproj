@@ -5,8 +5,8 @@
     <TargetFramework>net6.0</TargetFramework>
     <ApplicationIcon />
     <StartupObject />
-    <RootNamespace>Sample4_ContentManagement</RootNamespace>
-    <AssemblyName>Sample4_ContentManagement</AssemblyName>
+    <RootNamespace>Sample4_ContentManagement.NETCore</RootNamespace>
+    <AssemblyName>Sample4_ContentManagement.NETCore</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>
@@ -24,6 +24,8 @@
     <PackageReference Include="Ultraviolet.Shims.NETCore" />
   </ItemGroup>
 
-  <Import Project="..\Sample4_ContentManagement.Shared\Sample4_ContentManagement.Shared.projitems" Label="Shared" />
+  <ItemGroup>
+    <ProjectReference Include="..\Sample4_ContentManagement.Shared\Sample4_ContentManagement.Shared.csproj" />
+  </ItemGroup>
 
 </Project>

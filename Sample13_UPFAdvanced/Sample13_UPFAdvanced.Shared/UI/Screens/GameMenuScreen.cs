@@ -2,7 +2,7 @@
 using Ultraviolet.Content;
 using Ultraviolet.UI;
 
-namespace Sample13_UPFAdvanced.UI.Screens
+namespace Sample13_UPFAdvanced.Shared.UI.Screens
 {
     /// <summary>
     /// Represents the game's main menu screen.

@@ -4,12 +4,12 @@ using Ultraviolet;
 using Ultraviolet.Presentation;
 using Ultraviolet.Presentation.Controls;
 
-namespace Sample13_UPFAdvanced.UI.Controls
+namespace Sample13_UPFAdvanced.Shared.UI.Controls
 {
     /// <summary>
     /// Represents a control which allows the user to pick a color for one of a displayed triangle's vertices.
     /// </summary>
-    [UvmlKnownType(null, "UltravioletSample.Sample13_UPFAdvanced.UI.Controls.Templates.TriangleColorSelector.xml")]
+    [UvmlKnownType(null, "UltravioletSample.Sample13_UPFAdvanced.Shared.UI.Controls.Templates.TriangleColorSelector.xml")]
     public sealed class TriangleColorSelector : ContentControl
     {
         /// <summary>

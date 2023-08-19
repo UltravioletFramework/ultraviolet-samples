@@ -5,8 +5,8 @@
     <TargetFramework>net6.0</TargetFramework>
     <ApplicationIcon />
     <StartupObject />
-    <RootNamespace>Sample2_HandlingInput</RootNamespace>
-    <AssemblyName>Sample2_HandlingInput</AssemblyName>
+    <RootNamespace>Sample2_HandlingInput.NETCore</RootNamespace>
+    <AssemblyName>Sample2_HandlingInput.NETCore</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>
@@ -24,6 +24,8 @@
     <PackageReference Include="Ultraviolet.Shims.NETCore" />
   </ItemGroup>
 
-  <Import Project="..\Sample2_HandlingInput.Shared\Sample2_HandlingInput.Shared.projitems" Label="Shared" />
+  <ItemGroup>
+    <ProjectReference Include="..\Sample2_HandlingInput.Shared\Sample2_HandlingInput.Shared.csproj" />
+  </ItemGroup>
 
 </Project>

@@ -5,8 +5,8 @@
     <TargetFramework>net6.0</TargetFramework>
     <ApplicationIcon />
     <StartupObject />
-    <RootNamespace>Sample9_ManagingStateWithUIScreens</RootNamespace>
-    <AssemblyName>Sample9_ManagingStateWithUIScreens</AssemblyName>
+    <RootNamespace>Sample9_ManagingStateWithUIScreens.NETCore</RootNamespace>
+    <AssemblyName>Sample9_ManagingStateWithUIScreens.NETCore</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>
@@ -24,6 +24,8 @@
     <PackageReference Include="Ultraviolet.Shims.NETCore" />
   </ItemGroup>
 
-  <Import Project="..\Sample9_ManagingStateWithUIScreens.Shared\Sample9_ManagingStateWithUIScreens.Shared.projitems" Label="Shared" />
+  <ItemGroup>
+    <ProjectReference Include="..\Sample9_ManagingStateWithUIScreens.Shared\Sample9_ManagingStateWithUIScreens.Shared.csproj" />
+  </ItemGroup>
 
 </Project>

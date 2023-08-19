@@ -1,8 +1,8 @@
 using System;
 using System.IO;
 using Sample12_UPF.Input;
-using Sample12_UPF.UI;
-using Sample12_UPF.UI.Screens;
+using Sample12_UPF.Shared.UI;
+using Sample12_UPF.Shared.UI.Screens;
 using Ultraviolet;
 using Ultraviolet.BASS;
 using Ultraviolet.Content;
@@ -15,34 +15,30 @@ using Ultraviolet.SDL2;
 
 namespace Sample12_UPF
 {
-    public partial class Game : UltravioletApplication
+    public class Game : UltravioletApplicationAdapter
     {
-        public Game()
-            : this(GameFlags.None)
+        public Game(IUltravioletApplicationAdapterHost host)
+            : this(host, GameFlags.None)
         { }
 
-        public Game(GameFlags flags)
-            : base("Ultraviolet", "Sample 12 - UPF")
+        public Game(IUltravioletApplicationAdapterHost host, GameFlags flags)
+            : base(host)
         {
             this.flags = flags;
         }
 
-        protected override UltravioletContext OnCreatingUltravioletContext(Action<UltravioletContext, UltravioletFactory> factoryInitializer)
+        protected override void OnConfiguring(UltravioletConfiguration configuration)
         {
-            var configuration = new SDL2UltravioletConfiguration();
             configuration.EnableServiceMode = ShouldRunInServiceMode();
             configuration.WatchViewFilesForChanges = ShouldDynamicallyReloadContent();
             configuration.Plugins.Add(new OpenGLGraphicsPlugin());
             configuration.Plugins.Add(new BASSAudioPlugin());
             configuration.Plugins.Add(new FreeTypeFontPlugin());
             configuration.Plugins.Add(new PresentationFoundationPlugin());
-
-            return new SDL2UltravioletContext(this, configuration, factoryInitializer);
         }
 
         protected override void OnInitialized()
         {
-            UsePlatformSpecificFileSource();
             LoadInputBindings();
 
             base.OnInitialized();
@@ -82,7 +78,7 @@ namespace Sample12_UPF
         {
             if (Ultraviolet.GetInput().GetActions().ExitApplication.IsPressed())
             {
-                Exit();
+                Host.Exit();
             }
             
             base.OnUpdating(time);
@@ -106,7 +102,7 @@ namespace Sample12_UPF
 
         private String GetInputBindingsPath()
         {
-            return Path.Combine(GetRoamingApplicationSettingsDirectory(), "InputBindings.xml");
+            return Path.Combine(Host.GetRoamingApplicationSettingsDirectory(), "InputBindings.xml");
         }
 
         private void LoadInputBindings()

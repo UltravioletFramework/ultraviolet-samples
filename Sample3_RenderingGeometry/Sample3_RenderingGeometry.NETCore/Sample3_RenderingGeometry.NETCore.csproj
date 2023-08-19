@@ -5,8 +5,8 @@
     <TargetFramework>net6.0</TargetFramework>
     <ApplicationIcon />
     <StartupObject />
-    <RootNamespace>Sample3_RenderingGeometry</RootNamespace>
-    <AssemblyName>Sample3_RenderingGeometry</AssemblyName>
+    <RootNamespace>Sample3_RenderingGeometry.NETCore</RootNamespace>
+    <AssemblyName>Sample3_RenderingGeometry.NETCore</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>
@@ -24,6 +24,8 @@
     <PackageReference Include="Ultraviolet.Shims.NETCore" />
   </ItemGroup>
 
-  <Import Project="..\Sample3_RenderingGeometry.Shared\Sample3_RenderingGeometry.Shared.projitems" Label="Shared" />
+  <ItemGroup>
+    <ProjectReference Include="..\Sample3_RenderingGeometry.Shared\Sample3_RenderingGeometry.Shared.csproj" />
+  </ItemGroup>
 
 </Project>

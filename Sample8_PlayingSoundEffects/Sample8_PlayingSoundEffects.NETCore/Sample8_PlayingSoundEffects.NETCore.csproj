@@ -5,8 +5,8 @@
     <TargetFramework>net6.0</TargetFramework>
     <ApplicationIcon />
     <StartupObject />
-    <RootNamespace>Sample8_PlayingSoundEffects</RootNamespace>
-    <AssemblyName>Sample8_PlayingSoundEffects</AssemblyName>
+    <RootNamespace>Sample8_PlayingSoundEffects.NETCore</RootNamespace>
+    <AssemblyName>Sample8_PlayingSoundEffects.NETCore</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>
@@ -24,6 +24,8 @@
     <PackageReference Include="Ultraviolet.Shims.NETCore" />
   </ItemGroup>
 
-  <Import Project="..\Sample8_PlayingSoundEffects.Shared\Sample8_PlayingSoundEffects.Shared.projitems" Label="Shared" />
+  <ItemGroup>
+    <ProjectReference Include="..\Sample8_PlayingSoundEffects.Shared\Sample8_PlayingSoundEffects.Shared.csproj" />
+  </ItemGroup>
 
 </Project>

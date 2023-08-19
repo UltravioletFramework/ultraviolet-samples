@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Sample13_UPFAdvanced
+namespace Sample13_UPFAdvanced.Shared
 {
     [Flags]
     public enum GameFlags

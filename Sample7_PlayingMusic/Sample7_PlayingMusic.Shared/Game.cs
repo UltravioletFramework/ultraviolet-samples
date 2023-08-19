@@ -16,24 +16,20 @@ using Ultraviolet.SDL2;
 
 namespace Sample7_PlayingMusic
 {
-    public partial class Game : UltravioletApplication
+    public class Game : UltravioletApplicationAdapter
     {
-        public Game()
-            : base("Ultraviolet", "Sample 7 - Playing Music")
+        public Game(IUltravioletApplicationAdapterHost host)
+            : base(host)
         { }
 
-        protected override UltravioletContext OnCreatingUltravioletContext(Action<UltravioletContext, UltravioletFactory> factoryInitializer)
+        protected override void OnConfiguring(UltravioletConfiguration configuration)
         {
-            var configuration = new SDL2UltravioletConfiguration();
             configuration.Plugins.Add(new OpenGLGraphicsPlugin());
             configuration.Plugins.Add(new BASSAudioPlugin());
-
-            return new SDL2UltravioletContext(this, configuration, factoryInitializer);
         }
 
         protected override void OnInitialized()
         {
-            UsePlatformSpecificFileSource();
             LoadInputBindings();
 
             base.OnInitialized();
@@ -71,7 +67,7 @@ namespace Sample7_PlayingMusic
 
             if (Ultraviolet.GetInput().GetActions().ExitApplication.IsPressed())
             {
-                Exit();
+                Host.Exit();
             }
 
             base.OnUpdating(time);
@@ -130,7 +126,7 @@ namespace Sample7_PlayingMusic
 
         private String GetInputBindingsPath()
         {
-            return Path.Combine(GetRoamingApplicationSettingsDirectory(), "InputBindings.xml");
+            return Path.Combine(Host.GetRoamingApplicationSettingsDirectory(), "InputBindings.xml");
         }
 
         private void LoadInputBindings()

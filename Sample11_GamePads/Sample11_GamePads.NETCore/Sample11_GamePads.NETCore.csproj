@@ -5,8 +5,8 @@
     <TargetFramework>net6.0</TargetFramework>
     <ApplicationIcon />
     <StartupObject />
-    <RootNamespace>Sample11_GamePads</RootNamespace>
-    <AssemblyName>Sample11_GamePads</AssemblyName>
+    <RootNamespace>Sample11_GamePads.Android</RootNamespace>
+    <AssemblyName>Sample11_GamePads.Android</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>
@@ -24,6 +24,8 @@
     <PackageReference Include="Ultraviolet.Shims.NETCore" />
   </ItemGroup>
 
-  <Import Project="..\Sample11_GamePads.Shared\Sample11_GamePads.Shared.projitems" Label="Shared" />
+  <ItemGroup>
+    <ProjectReference Include="..\Sample11_GamePads.Shared\Sample11_GamePads.Shared.csproj" />
+  </ItemGroup>
 
 </Project>

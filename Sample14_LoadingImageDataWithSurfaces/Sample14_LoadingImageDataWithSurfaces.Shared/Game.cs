@@ -12,24 +12,20 @@ using Ultraviolet.SDL2;
 
 namespace Sample14_LoadingImageDataWithSurfaces
 {
-    public partial class Game : UltravioletApplication
+    public class Game : UltravioletApplicationAdapter
     {
-        public Game()
-            : base("Ultraviolet", "Sample 14 - Loading Image Data with Surfaces")
+        public Game(IUltravioletApplicationAdapterHost host)
+            : base(host)
         { }
 
-        protected override UltravioletContext OnCreatingUltravioletContext(Action<UltravioletContext, UltravioletFactory> factoryInitializer)
+        protected override void OnConfiguring(UltravioletConfiguration configuration)
         {
-            var configuration = new SDL2UltravioletConfiguration();
             configuration.Plugins.Add(new OpenGLGraphicsPlugin());
             configuration.Plugins.Add(new BASSAudioPlugin());
-
-            return new SDL2UltravioletContext(this, configuration, factoryInitializer);
         }
 
         protected override void OnInitialized()
         {
-            UsePlatformSpecificFileSource();
             LoadInputBindings();
 
             base.OnInitialized();
@@ -53,7 +49,7 @@ namespace Sample14_LoadingImageDataWithSurfaces
             // Surface2D lives in CPU memory, so we can directly manipulate it without involving the graphics driver.
             // In this sample, we just load its color data into an array for later use in OnDrawing().
             this.surface = this.content.Load<Surface2D>("Data/Face");
-            this.texture = this.surface.CreateTexture();
+            this.texture = Texture2D.CreateTextureFromSurface(this.surface);
             this.data = new Color[surface.Width * surface.Height];
             surface.GetData(this.data);
 
@@ -64,7 +60,7 @@ namespace Sample14_LoadingImageDataWithSurfaces
         {
             if (Ultraviolet.GetInput().GetActions().ExitApplication.IsPressed())
             {
-                Exit();
+                Host.Exit();
             }
 
             base.OnUpdating(time);
@@ -134,7 +130,7 @@ namespace Sample14_LoadingImageDataWithSurfaces
 
         private String GetInputBindingsPath()
         {
-            return Path.Combine(GetRoamingApplicationSettingsDirectory(), "InputBindings.xml");
+            return Path.Combine(Host.GetRoamingApplicationSettingsDirectory(), "InputBindings.xml");
         }
 
         private void LoadInputBindings()

@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
-using Sample13_UPFAdvanced.UI.Dialogs;
+using Sample13_UPFAdvanced.Shared.UI.Dialogs;
 using Ultraviolet;
 using Ultraviolet.Core;
 using Ultraviolet.Input;
@@ -8,7 +8,7 @@ using Ultraviolet.Presentation;
 using Ultraviolet.Presentation.Controls;
 using Ultraviolet.Presentation.Input;
 
-namespace Sample13_UPFAdvanced.UI.Screens
+namespace Sample13_UPFAdvanced.Shared.UI.Screens
 {
     /// <summary>
     /// Represents the view model for <see cref="GamePlayScreen"/>.

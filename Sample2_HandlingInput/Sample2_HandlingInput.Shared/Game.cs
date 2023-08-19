@@ -1,26 +1,22 @@
 using System;
-using Ultraviolet.SDL2;
 using System.IO;
 using Sample2_HandlingInput.Input;
 using Ultraviolet;
 using Ultraviolet.BASS;
 using Ultraviolet.OpenGL;
 
-namespace Sample2_HandlingInput
+namespace Sample2_HandlingInput.Shared
 {
-    public partial class Game : UltravioletApplication
+    public class Game : UltravioletApplicationAdapter
     {
-        public Game()
-            : base("Ultraviolet", "Sample 2 - Handling Input")
+        public Game(IUltravioletApplicationAdapterHost host)
+            : base(host)
         { }
 
-        protected override UltravioletContext OnCreatingUltravioletContext(Action<UltravioletContext, UltravioletFactory> factoryInitializer)
+        protected override void OnConfiguring(UltravioletConfiguration configuration)
         {
-            var configuration = new SDL2UltravioletConfiguration();
             configuration.Plugins.Add(new OpenGLGraphicsPlugin());
             configuration.Plugins.Add(new BASSAudioPlugin());
-
-            return new SDL2UltravioletContext(this, configuration, factoryInitializer);
         }
 
         protected override void OnLoadingContent()
@@ -41,14 +37,14 @@ namespace Sample2_HandlingInput
         {
             if (Ultraviolet.GetInput().GetActions().ExitApplication.IsPressed())
             {
-                Exit();
+                Host.Exit();
             }
             base.OnUpdating(time);
         }
 
         private String GetInputBindingsPath()
         {
-            return Path.Combine(GetRoamingApplicationSettingsDirectory(), "InputBindings.xml");
+            return Path.Combine(Host.GetRoamingApplicationSettingsDirectory(), "InputBindings.xml");
         }
 
         private void LoadInputBindings()

@@ -5,8 +5,8 @@
     <TargetFramework>net6.0</TargetFramework>
     <ApplicationIcon />
     <StartupObject />
-    <RootNamespace>uvgame</RootNamespace>
-    <AssemblyName>Sample13_UPFAdvanced</AssemblyName>
+    <RootNamespace>Sample13_UPFAdvanced.NETCore</RootNamespace>
+    <AssemblyName>Sample13_UPFAdvanced.NETCore</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>
@@ -26,6 +26,9 @@
     <PackageReference Include="Ultraviolet.Shims.NETCore" />
   </ItemGroup>
 
-  <Import Project="..\Sample13_UPFAdvanced.Shared\Sample13_UPFAdvanced.Shared.projitems" Label="Shared" />
+  <ItemGroup>
+    <ProjectReference Include="..\Sample13_UPFAdvanced.Shared\Sample13_UPFAdvanced.Shared.csproj" />
+  </ItemGroup>
+
 
 </Project>

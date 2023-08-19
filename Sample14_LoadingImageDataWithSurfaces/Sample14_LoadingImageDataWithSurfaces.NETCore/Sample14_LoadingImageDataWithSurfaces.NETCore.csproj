@@ -5,8 +5,8 @@
     <TargetFramework>net6.0</TargetFramework>
     <ApplicationIcon />
     <StartupObject />
-    <RootNamespace>Sample14_LoadingImageDataWithSurfaces</RootNamespace>
-    <AssemblyName>Sample14_LoadingImageDataWithSurfaces</AssemblyName>
+    <RootNamespace>Sample14_LoadingImageDataWithSurfaces.NETCore</RootNamespace>
+    <AssemblyName>Sample14_LoadingImageDataWithSurfaces.NETCore</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>
@@ -24,6 +24,9 @@
     <PackageReference Include="Ultraviolet.Shims.NETCore" />
   </ItemGroup>
 
-  <Import Project="..\Sample14_LoadingImageDataWithSurfaces.Shared\Sample14_LoadingImageDataWithSurfaces.Shared.projitems" Label="Shared" />
+  <ItemGroup>
+    <ProjectReference Include="..\Sample14_LoadingImageDataWithSurfaces.Shared\Sample14_LoadingImageDataWithSurfaces.Shared.csproj" />
+  </ItemGroup>
+
 
 </Project>

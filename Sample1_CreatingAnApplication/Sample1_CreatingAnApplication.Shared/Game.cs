@@ -1,24 +1,19 @@
-using System;
 using Ultraviolet;
 using Ultraviolet.BASS;
 using Ultraviolet.OpenGL;
-using Ultraviolet.SDL2;
 
 namespace Sample1_CreatingAnApplication
 {
-    public partial class Game : UltravioletApplication
+    public class Game : UltravioletApplicationAdapter
     {
-        public Game()
-            : base("Ultraviolet", "Sample 1 - Creating an Application")
+        public Game(IUltravioletApplicationAdapterHost host)
+            : base(host)
         { }
 
-        protected override UltravioletContext OnCreatingUltravioletContext(Action<UltravioletContext, UltravioletFactory> factoryInitializer)
+        protected override void OnConfiguring(UltravioletConfiguration configuration)
         {
-            var configuration = new SDL2UltravioletConfiguration();
             configuration.Plugins.Add(new OpenGLGraphicsPlugin());
             configuration.Plugins.Add(new BASSAudioPlugin());
-
-            return new SDL2UltravioletContext(this, configuration, factoryInitializer);
         }
     }
 }

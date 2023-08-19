@@ -5,8 +5,8 @@
     <TargetFramework>net6.0</TargetFramework>
     <ApplicationIcon />
     <StartupObject />
-    <RootNamespace>Sample1_CreatingAnApplication</RootNamespace>
-    <AssemblyName>Sample1_CreatingAnApplication</AssemblyName>
+    <RootNamespace>Sample1_CreatingAnApplication.NETCore</RootNamespace>
+    <AssemblyName>Sample1_CreatingAnApplication.NETCore</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>
@@ -24,6 +24,8 @@
     <PackageReference Include="Ultraviolet.Shims.NETCore" />
   </ItemGroup>
 
-  <Import Project="..\Sample1_CreatingAnApplication.Shared\Sample1_CreatingAnApplication.Shared.projitems" Label="Shared" />
+  <ItemGroup>
+    <ProjectReference Include="..\Sample1_CreatingAnApplication.Shared\Sample1_CreatingAnApplication.Shared.csproj" />
+  </ItemGroup>
 
 </Project>

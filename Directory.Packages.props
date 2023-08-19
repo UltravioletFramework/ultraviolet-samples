@@ -11,7 +11,7 @@
   
   <!-- Package versions for package references across all projects -->
   <PropertyGroup>
-    <UltravioletVersion>2023.8.0.1</UltravioletVersion>
+    <UltravioletVersion>2023.8.0.3</UltravioletVersion>
   </PropertyGroup>
   
   <ItemGroup>
